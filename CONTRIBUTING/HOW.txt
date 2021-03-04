@@ -1,0 +1,11 @@
+1. FORK
+
+Fork this repository and add any additional changes
+
+2. PR
+
+Create a pull request so we can see and approve it.
+
+3. CONTRIBUTE
+
+That's it, Add as many things as needed.

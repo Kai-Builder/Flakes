@@ -1,0 +1,16 @@
+Generate custom tailored Makefiles for your projects
+
+Useful for C Projects that need to be repeatedly built.
+
+To use, Try
+
+#include <flakes.hpp> // #include <flakes/STDMakefiles/include/make.h>
+
+
+int main() {
+    std::makefiles::makefile s;
+    s.name = "Makefile";
+    s.ext = ".stdmake";
+
+    std::makefiles::makefileconcat(s); // Returns Entire array of `s` As System Commands.
+}

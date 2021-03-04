@@ -1,0 +1,4 @@
+@echo off
+@rem This file is used to test the STDMakefile library.
+
+echo Hello from STDMakefiles!

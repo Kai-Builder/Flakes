@@ -1,0 +1,13 @@
+SERRL
+
+Standard Error Library
+
+
+std::errors::catchable_nullified_problem()
+
+std::errors::nullexception()
+
+std::errors::basic_stderr()
+
+std::errors::what()
+

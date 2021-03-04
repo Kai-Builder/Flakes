@@ -1,0 +1,102 @@
+Opposite post-successor to https://www.github.com/Kai-Builder/flour.
+Adds many quality of life
+additions to the standard template library as well as
+ease Rapid development of applications.
+
+Flakes is a very huge library for the STL (Standard template library) Which
+adds many new features, as well as make a couple features more human readable.
+
+Libraries (Open_Sourced)
+
+- JSON For Modern C++
+
+Other Libraries (Closed_Sourced)
+- JSONSupercharged (Unneeded)
+
+FLOUR VS FLAKES
+
+Flour is an old project i made when i was learning C. I made it with hopes of
+allowing people to do things they may not have known.
+
+Flakes is a C++ Implementation of many algorithms & Libraries which aid development.
+
+To build the Flakes test projects, Do the following
+
+$ make
+
+If some files have their own Makefiles, Do the following.
+
+$ cd <dir>
+$ make <makefile>
+
+Generators and Libraries
+
++ StdParserGen (std::parsers)
+
++ StdJsonLogic (std::json)
+
+
++ Time (std::wintime)
+
++ BetterMath (std::logicalmath)
+
++ Standard Error Library (STERRL) (std::errors)
+
++ Parser Token Validator (std::parsers::validator)
+
+--------------------------------------------------------------------------------------
+THIS PROJECT IS LICENSED UNDER THE MIT LICENSE
+
+===
+
+
+
+--------------------------------------------------------------------------------------
+
+(All libraries used here can be modified)
+
+--------------------------------------------------------------------------------------
+
+Q + A
+
+======
+
+Q: Why Don't you use Markdown?
+A: Just don't like it. Very bulky.
+
+Q: Does the parser generator need credits?
+A: No.
+
+Q: Where can i contribute?
+A: CONTRIBUTING/HOW.txt :)
+
+Q: What W A S Flour?
+A: It was a minimalist library for C++. That's it really.
+
+Q: This is like a sick upgrade! How can i support?
+A: Support is on patreon https://www.patreon.com/MultilanguageProgrammers
+
+Q: Are you going to use this in your apps?
+A: Mostly. I enjoy using macros to be able to easily construct
+complex algorithmic applications.
+
+Q: Docs?
+A: All documentation can be found in-extension. If that isn't enough, I've made a doc/
+Directory for documentation
+--------------------------------------------------------------------------------------
+
+&& IF YOU WERE WONDERING, THIS LIBRARY IS INSPIRED OFF OF:
+
+- BOOST
+- MINGW
+- CYGWIN
+- BISON
+
+THANKS!
+&&
+
+--------------------------------------------------------------------------------------
+
+You can try it in tests/
+
+Source in flakes_json/include/ :)

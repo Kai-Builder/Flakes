@@ -1,0 +1,5 @@
+THIS FILE IS WINDOWS ONLY
+
+Allows users to use std::sleep(<time>)
+
+std::clock [Datatype]

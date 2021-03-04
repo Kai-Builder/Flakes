@@ -1,0 +1,8 @@
+Generate A C++ File Parser Under any condition.
+
+You can use this parser as a way to create Config parsers.
+
+the namespace is std::parsers.
+
+You can use std::parsers::validator to evaluate and decode machine evaluation.
+
