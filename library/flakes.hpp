@@ -355,3 +355,104 @@ namespace std {
 #define PRINT(CHAR) std::sprint(CHAR)
 
 #endif //FLAKES_BETTER_STDOUT_HPP
+//
+// Created by seymo on 3/8/2021.
+//
+
+#ifndef FLAKES_FLAKEMAKE_H
+#define FLAKES_FLAKEMAKE_H
+#include <iostream>
+
+namespace flakes {
+    extern void on_ready();
+    extern bool is_ready();
+
+    // Better Math
+
+    namespace bettermath {
+        extern int half_of(int);
+        extern double half_of(double);
+        extern float half_of(float c);
+    }
+}
+
+#endif //FLAKES_FLAKEMAKE_H
+//
+// Created by seymo on 3/8/2021.
+//
+
+#ifndef FLAKES_STRING_H
+#define FLAKES_STRING_H
+
+
+#include <string>
+
+class String {
+    std::string value;
+    explicit String(const char* s) {
+        value = s;
+    }
+public:
+    void change(const char* thi) {
+        this->value = thi;
+    }
+};
+
+
+#endif //FLAKES_STRING_H
+//
+// Created by seymo on 3/8/2021.
+//
+
+#ifndef FLAKES_INTEGER_H
+#define FLAKES_INTEGER_H
+
+
+class Integer {
+private:
+    int volatiles;
+public:
+    Integer(int v) {
+        volatiles = v;
+    }
+};
+
+
+#endif //FLAKES_INTEGER_H
+//
+// Created by seymo on 3/8/2021.
+//
+
+#ifndef FLAKES_BOOLEAN_HPP
+#define FLAKES_BOOLEAN_HPP
+
+struct Boolean {
+private:
+    bool volatiles;
+public:
+    explicit Boolean(bool v) {
+        volatiles = v;
+    }
+};
+
+#endif //FLAKES_BOOLEAN_HPP
+//
+// Created by seymo on 3/8/2021.
+//
+
+#ifndef FLAKES_FLAKE_H
+#define FLAKES_FLAKE_H
+// Dynamic Version Check based off of Current Version
+
+#include <fstream>
+#include <iostream>
+
+void Check_Version() {
+    std::ifstream version("package.pkg");
+    std::string versions;
+    version >> versions;
+    if (versions != "1.0.4") {
+        std::cout << "Invalid Version. Download Latest from Github." << std::endl;
+    }
+}
+#endif //FLAKES_FLAKE_H

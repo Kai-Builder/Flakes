@@ -4,8 +4,8 @@
 
 #ifndef FLAKES_FLAKEMAKE_H
 #define FLAKES_FLAKEMAKE_H
-#include "../../BetterMath/include/bettermath.h"
-#include "../../Prototypes/include/proto.hpp"
+#include <iostream>
+
 namespace flakes {
     extern void on_ready();
     extern bool is_ready();
