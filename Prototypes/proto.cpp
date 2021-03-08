@@ -7,5 +7,4 @@
 int main() {
     std::BASIC_TEMPLATE basicTemplate("Kai", "1a", "https://home.kai-builder.ml", "10010");
     std::temp.value = "Hello";
-
 }

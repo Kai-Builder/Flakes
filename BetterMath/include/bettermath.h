@@ -4,6 +4,7 @@
 
 #ifndef FLAKES_BETTERMATH_H
 #define FLAKES_BETTERMATH_H
+#include <iostream>
 
 namespace std {
     namespace bettermath {
