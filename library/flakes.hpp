@@ -451,7 +451,7 @@ void Check_Version() {
     std::ifstream version("package.pkg");
     std::string versions;
     version >> versions;
-    if (versions != "1.0.4") {
+    if (versions != "1.0.4-2") {
         std::cout << "Invalid Version. Download Latest from Github." << std::endl;
     }
 }
