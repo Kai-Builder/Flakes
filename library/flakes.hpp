@@ -265,3 +265,93 @@ namespace std {
 }
 
 #endif //FLAKES_BETTERMATH_H
+//
+// Created by seymo on 3/8/2021.
+//
+
+#ifndef FLAKES_PROTO_HPP
+#define FLAKES_PROTO_HPP
+
+#include <iostream>
+
+void MAKE(const char* v) {
+    std::cout << "nullptr" << std::endl;
+}
+
+namespace std {
+    struct BASIC_TEMPLATE {
+
+
+        std::string value;
+
+        std::string id;
+        std::string  uuid;
+        std::string link;
+
+    public:
+        BASIC_TEMPLATE() {
+            this->value = "null";
+            this->uuid = "none";
+            this->link = "none";
+            this->id = "abc";
+        }
+        explicit BASIC_TEMPLATE(const std::string& ths) {
+            value = ths;
+        }
+        BASIC_TEMPLATE(const std::string& ths, const std::string& uuid ,const std::string& link, const std::string& id) {
+            this->value = ths;
+            this->uuid = uuid;
+            this->link = link;
+            this->id = id;
+        }
+        template<typename op>
+        op& operator==(const char* thi) {
+            if (this->value == thi) {
+                return true;
+            }
+            else {
+                return nullptr;
+            }
+
+        }
+    } ;
+    template<typename T>
+    BASIC_TEMPLATE& aTemplate(const T&& s) {
+        return s;
+    }
+    BASIC_TEMPLATE temp("L");
+
+    template<typename open>
+    open&& opened() {
+        return false;
+    }
+
+}
+
+#endif //FLAKES_PROTO_HPP
+//
+// Created by seymo on 3/8/2021.
+//
+#include <iostream>
+
+#ifndef FLAKES_BETTER_STDOUT_HPP
+#define FLAKES_BETTER_STDOUT_HPP
+namespace std {
+    void sprint(const char *T) {
+        std::cout << T << std::endl;
+    }
+
+    void PUTS(const std::string &th) {
+        std::cout << th << std::endl;
+    }
+
+    void puts_t(const std::string &tis) {
+        std::cout << tis << std::endl;
+    }
+}
+// HeaderDef Macros
+#define PRINTS(CHAR) std::puts_t(CHAR)
+#define S_PUTS(CHAR) std::PUTS(CHAR)
+#define PRINT(CHAR) std::sprint(CHAR)
+
+#endif //FLAKES_BETTER_STDOUT_HPP

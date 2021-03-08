@@ -19,7 +19,7 @@ namespace std {
         int pemdas(const std::string& expr) {
             return std::stoi(expr);
         }
-        bool switch_expr(const std::string construct) {
+        bool switch_expr(const std::string& construct) {
             bool exprf = std::stoi(construct);
             return exprf;
         }
