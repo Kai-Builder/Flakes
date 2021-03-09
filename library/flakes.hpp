@@ -456,3 +456,212 @@ void Check_Version() {
     }
 }
 #endif //FLAKES_FLAKE_H
+//
+// Created by seymo on 3/8/2021.
+//
+#include <iostream>
+#include <vector>
+#include <fstream>
+#define ARRAY(X, c) std::vector<std::string>X{c}
+/**
+ * FunctionBooleans is a datatype which is used by the switch_func() function.
+ * It defines several different types of parser.ParserObjects
+ * which are parser events that fire on contact with functions.
+*/
+enum FunctionBooleans {
+    IS_FUNCTION_MASTER,
+    IS_FUNCTION_BODY,
+    IS_FUNCTION_ARGUMENTS
+};
+
+extern void evaluate(std::ifstream);
+/**
+ * @attention FuncType Defines a certain body of a function. NOT a function type.
+ * FuncType Is a parser Validator That checks if a parser object is a certain type.
+ */
+enum FuncType {
+    NAME,
+    ARGS,
+    STATEMENT,
+};
+#ifndef FLAKES_FUNCTYPES_H
+#define FLAKES_FUNCTYPES_H
+/**
+ * Procedural_Getline Is a stdin constructor that builds a data handler from four operators. Procedural Getline
+ * Gathers 4 Delimiters, Then takes them and builds a constructor from them.
+ *
+ * \code
+ * procedural_getline('|', '\', '{', '}', filename, FuncType::STATEMENT) // Gets The Value Between { And }
+ * procedural_getline('|', '\', '{', '}', filename, FuncType::ARGS) // Gets The Value Between | And \
+ * procedural_getline('|', '\', '{', '}', filename, FuncType::NAME) // Gets The Value Before |
+ * // hello|args\ { helloss }
+ * // Funcname: hello
+ * // Args: args
+ * // Statement: helloss
+ * \endcode
+ * @param delim1
+ * @param delim2
+ * @param delim3
+ * @param delim4
+ * @param file
+ * @param funcType
+ * @return FuncType&
+ */
+std::string procedural_getline(char delim1, char delim2, char delim3, char delim4, std::ifstream& file, const FuncType funcType) {
+    std::string error = "Failed";
+    std::string funcname;
+    std::string args;
+    std::string open;
+    std::string statement;
+
+    getline(file, funcname, delim1);
+    getline(file, args, delim2);
+    getline(file, open, delim3);
+    getline(file, statement, delim4);
+    if (funcType == NAME) {
+        return funcname;
+    }
+    else if (funcType == ARGS) {
+        return args;
+    }
+    else if (funcType == STATEMENT) {
+        return statement;
+    }
+    else {
+        std::cout << "Failed to parse expression of procedural_getline.\n"
+                     "Reason: Invalid DataType of funcType." << std::endl;
+        return error;
+    }
+
+}
+std::vector<std::string> splice(const std::string& c, const std::string& delim) {
+    std::vector<std::string>error{"404", "Error Occurred"};
+    try {
+
+        std::vector<std::string>agg;
+        std::string string = c.substr(0 , c.find(delim));
+        while (string == c.substr(0, c.find(delim))) {
+
+            agg.push_back(string);
+            string = c.substr(0, c.find(delim));
+
+        }
+        return agg;
+    }
+    catch (std::logic_error&) {
+        return error;
+    }
+    return std::vector<std::string>();
+}
+/**
+ * Pre allocated procedural_getline Specifically for functional syntax. Similar to:
+ * @code
+ * procedural_getline('(' ')', '{', '}')
+ * @endcode
+ * @param file
+ * @param funcType
+ * @return
+ */
+std::string functional_getline(std::ifstream& file, const FuncType funcType) {
+    std::string error = "Failed";
+    std::string funcname;
+    std::string args;
+    std::string open;
+    std::string statement;
+
+    getline(file, funcname, '(');
+    getline(file, args, ')');
+    getline(file, open, '{');
+    getline(file, statement, '}');
+    if (funcType == NAME) {
+        return funcname;
+    }
+    else if (funcType == ARGS) {
+        return args;
+    }
+    else if (funcType == STATEMENT) {
+        return statement;
+    }
+    else {
+        std::cout << "Failed to parse expression of procedural_getline.\n"
+                     "Reason: Invalid DataType of funcType." << std::endl;
+        return error;
+    }
+
+}
+struct nothrow {
+private:
+    std::string funcname;
+    std::vector<std::string> args{};
+
+public:
+    std::ifstream file;
+    explicit nothrow(const std::string& name) {
+        funcname = name;
+    };
+    explicit nothrow(const std::string& name, const std::string& file) {
+        funcname = name;
+    };
+    bool get() {
+        std::string name = procedural_getline('(', ')', '{', '}', file, FuncType::NAME);
+        if (name == funcname) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+};
+
+/**
+ * Evaluate Pieces Of Code from a file.
+ * @param ifstream& this->ifstream
+ * @returns evaluated stdout
+ */
+void evaluate(std::ifstream & filefunc) {
+
+}
+/**
+ * Try cases with file function.
+ * @param filefunc
+ * @param name
+ * @return
+ */
+bool switch_func(std::ifstream & filefunc, const std::string& name) {
+    std::string funcname;
+    std::string args;
+    std::string open;
+    std::string statement;
+
+    getline(filefunc, funcname, '(');
+    getline(filefunc, args, ')');
+    getline(filefunc, open, '{');
+    getline(filefunc, statement, '}');
+    if (funcname == name)
+        return true;
+    else
+        return false;
+}
+/**
+ * Macro For functional_getline, And splice(functional)
+ * @param ifs
+ * @return
+ */
+std::string get_dynamic_args(std::ifstream & ifs) {
+    /**
+     * Every string function returns <error> on Failed.
+     */
+
+    std::string error = "FAILED";
+
+    std::string array_of_args = functional_getline(ifs, ARGS);
+
+    ARRAY(arguments, splice(array_of_args, ","));
+
+    for (auto & argument : arguments) {
+        std::cout << argument << std::endl;
+    }
+    return "Worked.";
+}
+
+#endif //FLAKES_FUNCTYPES_H
